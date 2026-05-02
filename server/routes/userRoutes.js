@@ -27,7 +27,7 @@ router.delete(
 // 👤 Get current logged-in user
 router.get("/me", authMiddleware, async (req, res) => {
   try {
-    const User = require("../models/User");
+    const User = require("../models/user");
     const user = await User.findById(req.user.id).select("-password");
 
     res.json(user);
