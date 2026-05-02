@@ -437,7 +437,18 @@ textarea.notes-input::placeholder { color: var(--muted); }
   .day-type-grid { grid-template-columns: 1fr; }
   .daily-header { flex-direction: column; }
   .page { padding: 1.5rem 1rem; }
-  .topnav { padding: 0 1rem; }
+  .topnav { 
+    height: auto; 
+    padding: 1rem; 
+    flex-direction: column; 
+    gap: 1rem; 
+    align-items: center; 
+  }
+  .topnav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
   .lc-stats-row { flex-direction: column; gap: 1rem; }
   .lc-stat-divider { display: none; }
 }

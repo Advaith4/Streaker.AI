@@ -64,40 +64,10 @@ function Navbar() {
   };
 
   return (
-    <nav style={{
-      position: "sticky",
-      top: 0,
-      zIndex: 100,
-      background: "rgba(15, 23, 42, 0.75)",
-      backdropFilter: "blur(12px)",
-      WebkitBackdropFilter: "blur(12px)",
-      borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: "0.75rem 2rem",
-      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)"
-    }}>
+    <nav className="topnav">
       {/* Brand */}
-      <Link to="/dashboard" style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "0.6rem",
-        textDecoration: "none",
-        fontWeight: 800,
-        fontSize: "1.25rem",
-        letterSpacing: "-0.03em"
-      }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "32px",
-          height: "32px",
-          background: "linear-gradient(135deg, #f59e0b, #ef4444)",
-          borderRadius: "8px",
-          boxShadow: "0 4px 10px rgba(245, 158, 11, 0.3)"
-        }}>
+      <Link to="/dashboard" className="topnav-brand">
+        <div className="topnav-brand-icon">
           <Flame size={18} color="#fff" strokeWidth={2.5} />
         </div>
         <span style={{ 
@@ -110,7 +80,7 @@ function Navbar() {
       </Link>
 
       {/* Navigation Links */}
-      <div style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
+      <div className="topnav-links">
         <NavItem to="/dashboard" icon={LayoutDashboard} label="Dashboard" />
         <NavItem to="/dsa" icon={Target} label="DSA Tracker" />
         <NavItem to="/profile" icon={User} label="Profile" />

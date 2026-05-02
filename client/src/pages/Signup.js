@@ -36,7 +36,11 @@ function Signup() {
         credential: credentialResponse.credential 
       });
       localStorage.setItem("token", res.data.token);
-      toast.success("Account created successfully! 🚀");
+      if (res.data.isNewUser) {
+        toast.success("Account created successfully! 🎉");
+      } else {
+        toast.success("Welcome back! 🚀");
+      }
       navigate("/dashboard");
     } catch (err) {
       toast.error(err.response?.data?.message || "Google Signup Failed");

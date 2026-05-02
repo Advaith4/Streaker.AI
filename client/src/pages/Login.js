@@ -32,7 +32,11 @@ function Login() {
         credential: credentialResponse.credential 
       });
       localStorage.setItem("token", res.data.token);
-      toast.success("Welcome back! 🚀");
+      if (res.data.isNewUser) {
+        toast.success("Welcome to Streaker.ai! 🎉");
+      } else {
+        toast.success("Welcome back! 🚀");
+      }
       navigate("/dashboard");
     } catch (err) {
       toast.error(err.response?.data?.message || "Google Login Failed");

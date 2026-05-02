@@ -82,10 +82,11 @@ exports.googleLogin = async (req, res) => {
     const payload = ticket.getPayload();
     const { email, name, sub: googleId } = payload;
 
-    // Find or create user
+    let isNewUser = false;
     let user = await User.findOne({ email });
     
     if (!user) {
+      isNewUser = true;
       // Create new user if they don't exist
       // Since it's a google login, we don't really have a password. 
       // We'll generate a random string as password to satisfy the model requirement.
@@ -110,7 +111,7 @@ exports.googleLogin = async (req, res) => {
       { expiresIn: "7d" } // Make google logins last a bit longer
     );
 
-    res.json({ token });
+    res.json({ token, isNewUser });
   } catch (error) {
     console.error("Google Login Error:", error);
     res.status(401).json({ message: "Google authentication failed" });
