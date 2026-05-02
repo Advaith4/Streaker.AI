@@ -16,7 +16,7 @@ const app = express();
 // CORS — allow any origin in production (set CORS_ORIGIN in .env for stricter control)
 const allowedOrigins = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",").map(o => o.trim())
-  : ["http://localhost:3000"];
+  : ["http://localhost:3000", "https://streakerai-murex.vercel.app"];
 
 app.use(cors({
   origin: (origin, cb) => {
